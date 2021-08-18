@@ -7,8 +7,10 @@ use App\Entity\Manufacturer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class CarType extends AbstractType
 {
@@ -18,10 +20,10 @@ class CarType extends AbstractType
             ->add('name')
             ->add('Manufacturer', EntityType::class, [
                 'class' => Manufacturer::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'required' => true
             ])
             ->add('save', SubmitType::class);
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

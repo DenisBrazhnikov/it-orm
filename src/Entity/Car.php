@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Table(name="cars")
  * @ORM\Entity(repositoryClass=CarRepository::class)
@@ -20,6 +22,8 @@ class Car
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull
+     * @Assert\Length(min=3, max=255)
      */
     private $name;
 
