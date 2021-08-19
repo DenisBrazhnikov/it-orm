@@ -16,7 +16,18 @@ class CarsController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('cars/index.html.twig');
+        $cars = [
+            ['name' => 'Audi', 'date' => new \DateTime('NOW'), 'editable' => false],
+            ['name' => 'BMW', 'date' => new \DateTime('NOW'), 'editable' => false],
+            ['name' => 'ZAZ', 'date' => new \DateTime('NOW'), 'editable' => false],
+            ['name' => 'Mazda', 'date' => new \DateTime('NOW'), 'editable' => false],
+            ['name' => 'LADA', 'date' => new \DateTime('NOW'), 'editable' => true],
+            ['name' => 'Batmobile', 'date' => new \DateTime('NOW'), 'editable' => false],
+            ['name' => 'Nissan', 'date' => new \DateTime('NOW'), 'editable' => true],
+            ['name' => 'KIA', 'date' => new \DateTime('NOW'), 'editable' => false],
+        ];
+
+        return $this->render('cars/index.html.twig', compact('cars'));
     }
 
     /**

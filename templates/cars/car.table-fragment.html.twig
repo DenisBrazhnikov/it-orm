@@ -1,0 +1,6 @@
+<tr {{ index != 1 ?: 'class="bg-dark text-white"' }}>
+    <th scope="row">{{ index }}</th>
+    <td>{{ car.name }}</td>
+    <td>{{ car.date|date("m/d/Y") }}</td>
+    <td>{% if car.editable %}<a href="/">Edit</a>{% endif %}</td>
+</tr>

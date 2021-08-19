@@ -1,15 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CarsController!{% endblock %}
+{% block title %}The new title!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block header %}
+    The new header
+{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Cars View </h1>
+{% block content %}
+    <h1>Cars:</h1>
 
-</div>
+    {% if cars is empty %}
+        No cars ;(
+    {% else %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in cars %}
+            {% include 'cars/car.table-fragment.html.twig' with {'index': loop.index, 'car': car} only %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    The new footer
 {% endblock %}
