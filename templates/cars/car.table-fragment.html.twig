@@ -1,4 +1,4 @@
-<tr {{ index != 1 ?: 'class="bg-dark text-white"' }}>
+<tr class="{{ index % 2 ? 'bg-white' : 'bg-dark text-white' }} {{ index !=1 ?: 'text-danger'}}">
     <th scope="row">{{ index }}</th>
     <td>{{ car.name }}</td>
     <td>{{ car.date|date("m/d/Y") }}</td>
